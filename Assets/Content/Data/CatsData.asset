@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 764f82befdff1bf419465a8111a6a7c4, type: 3}
+  m_Name: CatsData
+  m_EditorClassIdentifier: 
+  Sprites:
+  - {fileID: 21300000, guid: 0399d807a81aa804ab29a14b8ecd8f49, type: 3}
+  - {fileID: 21300000, guid: b1efbf983e0bbc047920433ab16aaba3, type: 3}
+  - {fileID: 21300000, guid: 58f50625f767e4944ab94781466d6fc4, type: 3}
+  - {fileID: 21300000, guid: 234a99ff6cdc26e4abbca9d84ba1ad1b, type: 3}
+  - {fileID: 21300000, guid: fa894c31df6d7c84eb12f4b583590045, type: 3}
+  - {fileID: 21300000, guid: 671edc81429417249b95cca8c2399a6c, type: 3}
+  - {fileID: 21300000, guid: b60764568a530074e9ea2d126c300b42, type: 3}
+  - {fileID: 21300000, guid: 66720ecf293bd664d85059c3857d24e4, type: 3}
+  - {fileID: 21300000, guid: 5d86a326346cea5469b46618b9c35b4d, type: 3}
+  - {fileID: 21300000, guid: 4084691a6ec67304e9eadf2a2a6e8ce7, type: 3}
+  - {fileID: 21300000, guid: 089cc09d12b3b9f408b9745e85e4cf50, type: 3}
+  - {fileID: 21300000, guid: ffe75f8bccd4eeb4aba0be23755fd344, type: 3}

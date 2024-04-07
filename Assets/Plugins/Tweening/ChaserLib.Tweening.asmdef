@@ -1,0 +1,18 @@
+{
+    "name": "ChaserLib.Tweening",
+    "rootNamespace": "",
+    "references": [
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:c1a4da7d200e2774fb2c46ce6a0c60a9",
+        "GUID:437e73b450f2e884dbe7d0125d8a77bc"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

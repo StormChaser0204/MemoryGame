@@ -1,0 +1,20 @@
+{
+    "name": "ChaserLib.Dialogs",
+    "rootNamespace": "",
+    "references": [
+        "GUID:6b44886240d8f5b4ba43ff3255d46cac",
+        "GUID:cfa0a0afcad415343a47c701fe78ba3f",
+        "GUID:250022d020f5ff341a2ea9d0448b4fa4",
+        "GUID:3575f273b924366499552bc7a3fa1098",
+        "GUID:e030107ca5f28b549ba87dff10369708"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

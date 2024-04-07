@@ -1,0 +1,20 @@
+{
+    "name": "ChaserLib.EditorFeatures",
+    "rootNamespace": "",
+    "references": [
+        "GUID:c1a4da7d200e2774fb2c46ce6a0c60a9",
+        "GUID:93f8c78aa6578a845a79e9fafcbcf095",
+        "GUID:250022d020f5ff341a2ea9d0448b4fa4"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
