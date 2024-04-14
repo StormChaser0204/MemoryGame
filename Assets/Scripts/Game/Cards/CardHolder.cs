@@ -13,13 +13,19 @@ namespace Game.Cards
 {
     internal class CardHolder : MonoBehaviour, IDisposable
     {
-        [SerializeField] private Card _prefab;
+        [Serializable]
+        private struct GridConfig
+        {
+            public Vector2 CellSize;
+            public Card Prefab;
+        }
+
         [SerializeField] private Transform _container;
         [SerializeField] private GridLayoutGroup _grid;
         [SerializeField] private CatsData _catsData;
 
-        [SerializeField] private Vector2 _threeColumnsSize;
-        [SerializeField] private Vector2 _fourColumnsSize;
+        [SerializeField] private GridConfig _threeColumnsConfig;
+        [SerializeField] private GridConfig _fourColumnsConfig;
 
         private static ServiceLocator Locator => ServiceLocator.Instance;
         private static IEventDispatcher Dispatcher => Locator.Get<IEventDispatcher>();
@@ -30,14 +36,19 @@ namespace Game.Cards
 
         public async UniTask SetItems(List<int> values)
         {
-            SetupGrid(values.Count);
+            var isThreeColumns = values.Count <= 12;
+            var config = isThreeColumns ? _threeColumnsConfig : _fourColumnsConfig;
+            var columnsCount = isThreeColumns ? 3 : 4;
+            
+            SetupGrid(columnsCount, config.CellSize);
             var delay = TimeSpan.FromSeconds(0.15f);
 
             var shufled = _catsData.Sprites.OrderBy(_ => Guid.NewGuid()).ToList();
+            var prefab = config.Prefab;
 
             foreach (var value in values)
             {
-                var inst = Instantiate(_prefab, _container);
+                var inst = Instantiate(prefab, _container);
                 inst.Init(value, shufled[value]);
                 inst.OnSelected.AddListener(SelectCard);
                 _instances.Add(inst);
@@ -50,12 +61,10 @@ namespace Game.Cards
             }
         }
 
-        private void SetupGrid(int amount)
+        private void SetupGrid(int constaintCount, Vector2 cellSize)
         {
-            var isThreeColumns = amount <= 12;
-
-            _grid.constraintCount = isThreeColumns ? 3 : 4;
-            _grid.cellSize = isThreeColumns ? _threeColumnsSize : _fourColumnsSize;
+            _grid.constraintCount = constaintCount;
+            _grid.cellSize = cellSize;
         }
 
         private async void SelectCard(Card card)
@@ -92,7 +101,6 @@ namespace Game.Cards
                 selectedCard.Hide();
                 card.Hide();
             }
-
         }
 
         public void OnDestroy()

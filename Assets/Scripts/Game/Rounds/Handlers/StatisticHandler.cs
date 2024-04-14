@@ -10,7 +10,7 @@ namespace Game.Rounds.Handlers
     internal class StatisticHandler : EventHandler
     {
         private static ServiceLocator Locator => ServiceLocator.Instance;
-        private static Statistic Statistic => Locator.Get<Statistic>();
+        private static RoundStatistic RoundStatistic => Locator.Get<RoundStatistic>();
 
         public StatisticHandler(IEvent ev) : base(ev)
         {
@@ -18,13 +18,15 @@ namespace Game.Rounds.Handlers
 
         public override void Handle()
         {
+            RoundStatistic.IncTriesCount();
+
             if (EventIs<CorrectPairSelectedEvent>())
             {
-                Statistic.IncCorrect();
+                RoundStatistic.IncCorrect();
             }
             else
             {
-                Statistic.IncIncorrect();
+                RoundStatistic.IncIncorrect();
             }
         }
     }

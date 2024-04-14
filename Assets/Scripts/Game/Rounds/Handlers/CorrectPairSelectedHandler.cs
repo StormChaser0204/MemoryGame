@@ -11,7 +11,8 @@ namespace Game.Rounds.Handlers
     internal class CorrectPairSelectedHandler : EventHandler
     {
         private static ServiceLocator Locator => ServiceLocator.Instance;
-        private static Info Info => Locator.Get<Info>();
+        //private static RoundInfo RoundInfo => Locator.Get<RoundInfo>();
+        private static RoundStatistic RoundStatistic => Locator.Get<RoundStatistic>();
         private static IEventDispatcher Dispatcher => Locator.Get<IEventDispatcher>();
 
         public CorrectPairSelectedHandler(IEvent ev) : base(ev)
@@ -20,10 +21,10 @@ namespace Game.Rounds.Handlers
 
         public override void Handle()
         {
-            Info.CurrentPairsAmount++;
-            if (Info.CurrentPairsAmount != Info.TotalPairsAmount)
+            RoundStatistic.CurrentPairsAmount++;
+            if (RoundStatistic.CurrentPairsAmount != RoundStatistic.TotalPairsAmount)
                 return;
-            
+
             Dispatcher.Raise(new FinishRoundEvent());
         }
     }

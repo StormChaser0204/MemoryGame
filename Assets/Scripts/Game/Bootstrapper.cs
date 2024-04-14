@@ -1,4 +1,5 @@
 using System;
+using Common.Application;
 using Common.Cats;
 using Cysharp.Threading.Tasks;
 using Dependencies.ChaserLib.Dialogs;
@@ -6,9 +7,12 @@ using Dependencies.ChaserLib.ServiceLocator;
 using Dependencies.ChaserLib.Tasks;
 using Game.Cards;
 using Game.Cards.Events;
+using Game.Difficulty;
 using Game.Rounds;
 using Game.Rounds.Events;
 using Game.Rounds.Handlers;
+using Game.Score;
+using Game.Timer;
 using Plugins.EventDispatching.Dispatcher;
 using UnityEngine;
 
@@ -19,6 +23,9 @@ namespace Game
         [SerializeField] private CardHolder _cardHolder;
         [SerializeField] private DialogsLauncher _dialogsLauncher;
         [SerializeField] private CatsData _catsData;
+
+        [SerializeField] private TimerView _timerView;
+        [SerializeField] private ScoreView _scoreView;
 
         private static ServiceLocator Locator => ServiceLocator.Instance;
         private IEventDispatcher _dispatcher;
@@ -37,23 +44,39 @@ namespace Game
             Locator.Add<ICancellationTokenFactory>(new CancellationTokenFactory(token));
 
             SetupStatistic();
-            SetupRound();
+            SetupScoreCounter();
+            SetupTimer();
+            SetupDifficulty();
 
             BindHandlers();
 
             _dispatcher.Raise(new StartRoundEvent());
         }
 
-        private void SetupStatistic()
+        private static void SetupStatistic()
         {
-            var statistic = new Statistic();
+            var statistic = new RoundStatistic();
             Locator.Add(statistic);
         }
 
-        private void SetupRound()
+        private void SetupScoreCounter()
         {
-            var info = new Info();
-            Locator.Add(info);
+            var scoreCounter = new ScoreCounter();
+            Locator.Add(scoreCounter);
+            Locator.Add(_scoreView);
+        }
+
+        private void SetupTimer()
+        {
+            var manager = gameObject.AddComponent<TimerManager>();
+            manager.BindView(_timerView);
+            Locator.Add(manager);
+        }
+
+        private static void SetupDifficulty()
+        {
+            var manager = new DifficultyManager(0);
+            Locator.Add(manager);
         }
 
         private void BindHandlers()
@@ -61,9 +84,17 @@ namespace Game
             _dispatcher.Bind().Handler<StatisticHandler>().To<CorrectPairSelectedEvent>();
             _dispatcher.Bind().Handler<StatisticHandler>().To<IncorrectPairSelectedEvent>();
 
+            _dispatcher.Bind().Handler<ScoreHandler>().To<CorrectPairSelectedEvent>();
+            _dispatcher.Bind().Handler<ScoreHandler>().To<IncorrectPairSelectedEvent>();
+
             _dispatcher.Bind().Handler<StartRoundHandler>().To<StartRoundEvent>();
             _dispatcher.Bind().Handler<FinishRoundHandler>().To<FinishRoundEvent>();
             _dispatcher.Bind().Handler<CorrectPairSelectedHandler>().To<CorrectPairSelectedEvent>();
+
+            _dispatcher.Bind().Handler<TimerHandler>().To<StartRoundEvent>();
+            _dispatcher.Bind().Handler<TimerHandler>().To<FinishRoundEvent>();
+            _dispatcher.Bind().Handler<TimerHandler>().To<PauseEvent>();
+            _dispatcher.Bind().Handler<TimerHandler>().To<ResumeEvent>();
         }
     }
 }

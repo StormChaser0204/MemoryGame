@@ -34,9 +34,9 @@ RectTransform:
   - {fileID: 5066672475623497116}
   m_Father: {fileID: 1182893252944099864}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 353.56226, y: -121}
   m_SizeDelta: {x: 450, y: 102}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1334969663208428148
@@ -155,9 +155,9 @@ RectTransform:
   - {fileID: 397807858098772592}
   m_Father: {fileID: 1182893252944099864}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 353.56226, y: -253}
   m_SizeDelta: {x: 450, y: 102}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5223660081780352900
@@ -330,14 +330,13 @@ GameObject:
   - component: {fileID: 303486424677419101}
   - component: {fileID: 4256307590092960809}
   - component: {fileID: 9210963223743650311}
-  - component: {fileID: 4523067651751525021}
   m_Layer: 5
   m_Name: PauseDialog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4545026078536295837
 RectTransform:
   m_ObjectHideFlags: 0
@@ -462,20 +461,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &4523067651751525021
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4777141006773739134}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 934555c28f2b7ed45ad2615b43d72f98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _alphaTween: {fileID: 4256307590092960809}
-  _canvasGroup: {fileID: 303486424677419101}
 --- !u!1 &4953529398937176742
 GameObject:
   m_ObjectHideFlags: 0
