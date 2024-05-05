@@ -18,7 +18,7 @@ namespace Plugins.EventDispatching.Binding
             Add(typeof(T));
             return this;
         }
-
+        
         private void Add(Type type) => Group.Add(type);
 
         public void To<T>() where T : IEvent

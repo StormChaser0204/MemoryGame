@@ -18,6 +18,7 @@ using UnityEngine;
 
 namespace Game
 {
+    [AddComponentMenu("Game/Game Bootstrapper")]
     internal class Bootstrapper : MonoBehaviour
     {
         [SerializeField] private CardHolder _cardHolder;
