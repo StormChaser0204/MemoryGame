@@ -30,7 +30,10 @@ namespace Game.Cards
         private static ServiceLocator Locator => ServiceLocator.Instance;
         private static IEventDispatcher Dispatcher => Locator.Get<IEventDispatcher>();
 
-        private readonly List<Card> _instances = new();
+        private readonly List<Card> _cards = new();
+        private readonly Dictionary<int, Sprite> _cardsSprites = new();
+
+        private List<Info> _info;
 
         private Card _selectedCard;
 
@@ -39,26 +42,36 @@ namespace Game.Cards
             var isThreeColumns = values.Count <= 12;
             var config = isThreeColumns ? _threeColumnsConfig : _fourColumnsConfig;
             var columnsCount = isThreeColumns ? 3 : 4;
-            
+
             SetupGrid(columnsCount, config.CellSize);
             var delay = TimeSpan.FromSeconds(0.15f);
 
-            var shufled = _catsData.Sprites.OrderBy(_ => Guid.NewGuid()).ToList();
             var prefab = config.Prefab;
+            _info = _catsData.PickRandom(values.Count / 2).ToList();
 
             foreach (var value in values)
             {
-                var inst = Instantiate(prefab, _container);
-                inst.Init(value, shufled[value]);
-                inst.OnSelected.AddListener(SelectCard);
-                _instances.Add(inst);
+                var card = Instantiate(prefab, _container);
+                card.Init(value, GetCardSprite(value));
+                card.OnSelected.AddListener(SelectCard);
+                _cards.Add(card);
             }
 
-            foreach (var instance in _instances)
+            foreach (var instance in _cards)
             {
                 instance.ShowCard();
                 await UniTask.Delay(delay);
             }
+        }
+
+        private Sprite GetCardSprite(int idx)
+        {
+            if (_cardsSprites.ContainsKey(idx))
+                return _cardsSprites[idx];
+
+            var sprite = _info[idx].GetRandomPose();
+            _cardsSprites.Add(idx, sprite);
+            return sprite;
         }
 
         private void SetupGrid(int constaintCount, Vector2 cellSize)
@@ -105,7 +118,7 @@ namespace Game.Cards
 
         public void OnDestroy()
         {
-            foreach (var inst in _instances)
+            foreach (var inst in _cards)
             {
                 inst.OnSelected.RemoveListener(SelectCard);
             }
@@ -113,10 +126,11 @@ namespace Game.Cards
 
         public void Dispose()
         {
-            foreach (var instance in _instances)
+            foreach (var instance in _cards)
                 instance.Dispose();
 
-            _instances.Clear();
+            _cards.Clear();
+            _cardsSprites.Clear();
         }
     }
 }
