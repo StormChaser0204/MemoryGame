@@ -1,7 +1,9 @@
 {
-    "name": "Common.Cats",
+    "name": "DataHandler",
     "rootNamespace": "",
-    "references": [],
+    "references": [
+        "GUID:cfa0a0afcad415343a47c701fe78ba3f"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

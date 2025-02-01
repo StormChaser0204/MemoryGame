@@ -24,9 +24,9 @@ namespace Plugins.EventDispatching.Dispatcher
                 _handlers.Add(signalType, new List<Group> { group });
         }
 
-        void IEventDispatcher.Raise(IEvent @event)
+        void IEventDispatcher.Raise(IEvent ev)
         {
-            var type = @event.GetType();
+            var type = ev.GetType();
             var groups = _handlers[type].ToArray();
             if (groups.Length == 0)
             {
@@ -36,7 +36,7 @@ namespace Plugins.EventDispatching.Dispatcher
                 return;
             }
 
-            Process(@event, groups);
+            Process(ev, groups);
         }
 
         private void Process(IEvent @event, IEnumerable<Group> groups)

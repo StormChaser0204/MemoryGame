@@ -153,7 +153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cardHolder: {fileID: 1383811224}
   _dialogsLauncher: {fileID: 481170639}
-  _catsData: {fileID: 11400000, guid: 989fd3955a5285046a15f0bcefbb18de, type: 2}
+  _cardsData: {fileID: 11400000, guid: 989fd3955a5285046a15f0bcefbb18de, type: 2}
   _timerView: {fileID: 1848490447664035068}
   _scoreView: {fileID: 848577742}
 --- !u!4 &7189203

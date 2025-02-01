@@ -73,15 +73,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3af6bcffdffed92419a469e9d8207fa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 3315601209801914929, guid: 9d6cb489b6144a7438476f5865af76db, type: 3}
   _container: {fileID: 6692912242708893424}
   _grid: {fileID: 7206779665168816973}
-  _catsData: {fileID: 11400000, guid: 989fd3955a5285046a15f0bcefbb18de, type: 2}
+  _cardsData: {fileID: 11400000, guid: 989fd3955a5285046a15f0bcefbb18de, type: 2}
   _threeColumnsConfig:
     CellSize: {x: 300, y: 450}
     Prefab: {fileID: 3315601209801914929, guid: 9d6cb489b6144a7438476f5865af76db, type: 3}
   _fourColumnsConfig:
     CellSize: {x: 200, y: 300}
     Prefab: {fileID: 3315601209801914929, guid: 6e5f971a8e6539542b214e32fdb8c091, type: 3}
-  _threeColumnsSize: {x: 300, y: 450}
-  _fourColumnsSize: {x: 200, y: 300}

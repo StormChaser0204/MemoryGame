@@ -7,6 +7,6 @@ namespace Plugins.EventDispatching.Dispatcher
     public interface IEventDispatcher
     {
         Binder<EventHandlerBase> Bind();
-        void Raise(IEvent @event);
+        void Raise(IEvent ev);
     }
 }

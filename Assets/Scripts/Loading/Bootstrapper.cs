@@ -19,7 +19,6 @@ namespace Loading
         {
             //TODO: Add smooth change for progress bar loader 
             //TODO: YandexGames initialization
-            //TODO: Load saves
 
             _loadAnimation.Play(AnimatorLoadStateName);
             await UniTask.Delay(TimeSpan.FromSeconds(1f));

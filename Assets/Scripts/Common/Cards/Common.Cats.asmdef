@@ -1,0 +1,14 @@
+{
+    "name": "Common.Cards",
+    "rootNamespace": "",
+    "references": ["GUID:cfa0a0afcad415343a47c701fe78ba3f"],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

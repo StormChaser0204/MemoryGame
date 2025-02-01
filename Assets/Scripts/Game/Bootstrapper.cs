@@ -1,6 +1,6 @@
 using System;
 using Common.Application;
-using Common.Cats;
+using Common.Cards;
 using Cysharp.Threading.Tasks;
 using Dependencies.ChaserLib.Dialogs;
 using Dependencies.ChaserLib.ServiceLocator;
@@ -13,6 +13,7 @@ using Game.Rounds.Events;
 using Game.Rounds.Handlers;
 using Game.Score;
 using Game.Timer;
+using Plugins.DataHandler.Commands;
 using Plugins.EventDispatching.Dispatcher;
 using UnityEngine;
 
@@ -23,7 +24,7 @@ namespace Game
     {
         [SerializeField] private CardHolder _cardHolder;
         [SerializeField] private DialogsLauncher _dialogsLauncher;
-        [SerializeField] private CatsData _catsData;
+        [SerializeField] private CardsData _cardsData;
 
         [SerializeField] private TimerView _timerView;
         [SerializeField] private ScoreView _scoreView;
@@ -39,7 +40,7 @@ namespace Game
             Locator.Add(_dispatcher);
             Locator.Add<IDialogsLauncher>(_dialogsLauncher);
             Locator.Add(_cardHolder);
-            Locator.Add(_catsData);
+            Locator.Add(_cardsData);
 
             var token = gameObject.GetCancellationTokenOnDestroy();
             Locator.Add<ICancellationTokenFactory>(new CancellationTokenFactory(token));
@@ -48,9 +49,9 @@ namespace Game
             SetupScoreCounter();
             SetupTimer();
             SetupDifficulty();
-
+            SetupUnlockCards();
+            
             BindHandlers();
-
             _dispatcher.Raise(new StartRoundEvent());
         }
 
@@ -78,6 +79,12 @@ namespace Game
         {
             var manager = new DifficultyManager(0);
             Locator.Add(manager);
+        }
+        
+        private static void SetupUnlockCards()
+        {
+            var unlockInfo = new LoadDataCommand<UnlockCardsData>().Execute() ?? new UnlockCardsData();
+            Locator.Add(unlockInfo);
         }
 
         private void BindHandlers()

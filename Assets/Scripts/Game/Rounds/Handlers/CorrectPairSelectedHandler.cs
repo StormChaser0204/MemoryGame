@@ -11,7 +11,6 @@ namespace Game.Rounds.Handlers
     internal class CorrectPairSelectedHandler : EventHandler
     {
         private static ServiceLocator Locator => ServiceLocator.Instance;
-        //private static RoundInfo RoundInfo => Locator.Get<RoundInfo>();
         private static RoundStatistic RoundStatistic => Locator.Get<RoundStatistic>();
         private static IEventDispatcher Dispatcher => Locator.Get<IEventDispatcher>();
 

@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Common.Cats;
+using Common.Cards;
 using Cysharp.Threading.Tasks;
 using Dependencies.ChaserLib.ServiceLocator;
 using Game.Cards.Events;
@@ -22,18 +22,19 @@ namespace Game.Cards
 
         [SerializeField] private Transform _container;
         [SerializeField] private GridLayoutGroup _grid;
-        [SerializeField] private CatsData _catsData;
+        [SerializeField] private CardsData _cardsData;
 
         [SerializeField] private GridConfig _threeColumnsConfig;
         [SerializeField] private GridConfig _fourColumnsConfig;
 
         private static ServiceLocator Locator => ServiceLocator.Instance;
         private static IEventDispatcher Dispatcher => Locator.Get<IEventDispatcher>();
+        private static UnlockCardsData UnlockCardsData => Locator.Get<UnlockCardsData>();
 
         private readonly List<Card> _cards = new();
         private readonly Dictionary<int, Sprite> _cardsSprites = new();
 
-        private List<Info> _info;
+        private List<string> _names;
 
         private Card _selectedCard;
 
@@ -47,7 +48,7 @@ namespace Game.Cards
             var delay = TimeSpan.FromSeconds(0.15f);
 
             var prefab = config.Prefab;
-            _info = _catsData.PickRandom(values.Count / 2).ToList();
+            _names = UnlockCardsData.PickRandom(values.Count / 2).ToList();
 
             foreach (var value in values)
             {
@@ -69,7 +70,8 @@ namespace Game.Cards
             if (_cardsSprites.ContainsKey(idx))
                 return _cardsSprites[idx];
 
-            var sprite = _info[idx].GetRandomPose();
+            var cardName = _names[idx];
+            var sprite = _cardsData.GetByName(cardName).GetRandomPose();
             _cardsSprites.Add(idx, sprite);
             return sprite;
         }
@@ -80,6 +82,7 @@ namespace Game.Cards
             _grid.cellSize = cellSize;
         }
 
+        //TODO: Move to handler
         private async void SelectCard(Card card)
         {
             if (_selectedCard == null)

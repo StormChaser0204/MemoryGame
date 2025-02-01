@@ -10,91 +10,66 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 764f82befdff1bf419465a8111a6a7c4, type: 3}
-  m_Name: CatsData
+  m_Name: CardsData
   m_EditorClassIdentifier: 
   CatsInfo:
   - Name: Chesha
-    Poses:
+    Variants:
     - {fileID: 21300000, guid: cbbf08a951be68d48a32ace86cf6226b, type: 3}
     - {fileID: 21300000, guid: d2d7eec07b04ea6419692d3ebe66a9f2, type: 3}
     - {fileID: 21300000, guid: e1c768b8baadfa44681dee961f4f2f12, type: 3}
   - Name: Anji
-    Poses:
+    Variants:
     - {fileID: 21300000, guid: f828de72a2536a54ca454d22d28cf44a, type: 3}
     - {fileID: 21300000, guid: a8d5b89ea0653704881d74bb6236f91d, type: 3}
     - {fileID: 21300000, guid: a44241d2700035b4ba14367781369809, type: 3}
   - Name: Bast
-    Poses:
+    Variants:
     - {fileID: 21300000, guid: f7c2556de3a586c48b77e38be337fefa, type: 3}
     - {fileID: 21300000, guid: 909ac09b7398c65498042ac0fdf388b2, type: 3}
     - {fileID: 21300000, guid: cbfd501230d1651448559fc773df3eb4, type: 3}
   - Name: Cat
-    Poses:
+    Variants:
     - {fileID: 21300000, guid: de4ae7bb29d3a0c4ba3b24db2817744f, type: 3}
     - {fileID: 21300000, guid: 6bb5028d49fcee54b8e13b40379ec23f, type: 3}
     - {fileID: 21300000, guid: c410761b4499c6e44aaae92dc94d0836, type: 3}
   - Name: CubasovPersik
-    Poses:
+    Variants:
     - {fileID: 21300000, guid: e6eb1e0aa838fec409b33087e322c309, type: 3}
     - {fileID: 21300000, guid: 2e99fa152b7ccf94a8285a33f3379308, type: 3}
     - {fileID: 21300000, guid: a8192ee5a03348f4dbcc07c6f2f413f1, type: 3}
   - Name: Felix
-    Poses:
+    Variants:
     - {fileID: 21300000, guid: 48dfaa9f48668c84397d5782a98fa248, type: 3}
     - {fileID: 21300000, guid: f53eb54f2a3820340b82ef6df7770989, type: 3}
     - {fileID: 21300000, guid: d63c2296f629b0e4aa4349a3d7463f41, type: 3}
   - Name: Kesha
-    Poses:
+    Variants:
     - {fileID: 21300000, guid: d3b1b856c4a226a45bb0e90b4ba38223, type: 3}
     - {fileID: 21300000, guid: de3aaabb65cbab64ebcbff7932fc67e4, type: 3}
     - {fileID: 21300000, guid: f352bf07e5b19de498d7112e7f173565, type: 3}
   - Name: Koshka
-    Poses:
+    Variants:
     - {fileID: 21300000, guid: f195795efac08b543b12c77996e1e525, type: 3}
     - {fileID: 21300000, guid: 9f4e96556d1333849b4ccc250d92c40a, type: 3}
     - {fileID: 21300000, guid: 0e8dda6fc4e62654c89f5e29ea5e769e, type: 3}
   - Name: Luna
-    Poses:
+    Variants:
     - {fileID: 21300000, guid: e148f9bd8c1dfa44e889821c8774017d, type: 3}
     - {fileID: 21300000, guid: f991ec41fe186c7408ffe9e8b464b392, type: 3}
     - {fileID: 21300000, guid: ce104ef08e6eb4a4b8b7ac3f33f2f937, type: 3}
   - Name: Oliver
-    Poses:
+    Variants:
     - {fileID: 21300000, guid: 9b1e576082e186942b9ac2bc24e5ca77, type: 3}
     - {fileID: 21300000, guid: 5592523adb74ef642a73ba6c7c9e3000, type: 3}
     - {fileID: 21300000, guid: cf1631acead3abd4887346cd372b9d3d, type: 3}
   - Name: Shiro
-    Poses:
+    Variants:
     - {fileID: 21300000, guid: 2a316a20ebffc57419715866fa56ec10, type: 3}
     - {fileID: 21300000, guid: bdb6d78d37e8f6543831ca1495537837, type: 3}
     - {fileID: 21300000, guid: 26e4d78691cbd204eb0a23d374733078, type: 3}
   - Name: Sir
-    Poses:
+    Variants:
     - {fileID: 21300000, guid: 34600c3dc13c3a245902913a3811a336, type: 3}
     - {fileID: 21300000, guid: b1f8091e0cd5a8940b94360586b43b59, type: 3}
     - {fileID: 21300000, guid: 3b4954467fa830140ae4a882fab1a1bf, type: 3}
-  Sprites:
-  - {fileID: 21300000, guid: 0399d807a81aa804ab29a14b8ecd8f49, type: 3}
-  - {fileID: 21300000, guid: b1efbf983e0bbc047920433ab16aaba3, type: 3}
-  - {fileID: 21300000, guid: 58f50625f767e4944ab94781466d6fc4, type: 3}
-  - {fileID: 21300000, guid: 234a99ff6cdc26e4abbca9d84ba1ad1b, type: 3}
-  - {fileID: 21300000, guid: fa894c31df6d7c84eb12f4b583590045, type: 3}
-  - {fileID: 21300000, guid: 671edc81429417249b95cca8c2399a6c, type: 3}
-  - {fileID: 21300000, guid: b60764568a530074e9ea2d126c300b42, type: 3}
-  - {fileID: 21300000, guid: 66720ecf293bd664d85059c3857d24e4, type: 3}
-  - {fileID: 21300000, guid: 5d86a326346cea5469b46618b9c35b4d, type: 3}
-  - {fileID: 21300000, guid: 4084691a6ec67304e9eadf2a2a6e8ce7, type: 3}
-  - {fileID: 21300000, guid: 089cc09d12b3b9f408b9745e85e4cf50, type: 3}
-  - {fileID: 21300000, guid: ffe75f8bccd4eeb4aba0be23755fd344, type: 3}
-  - {fileID: 21300000, guid: d806d16d4df5e9348a15074fabaecedb, type: 3}
-  - {fileID: 21300000, guid: e1b277e9b3927e54aa5b8f4f294c477e, type: 3}
-  - {fileID: 21300000, guid: c707579fb0798454f83aa2a3051eec98, type: 3}
-  - {fileID: 21300000, guid: d5957e625d22c7e40a43bb65ecdc73b7, type: 3}
-  - {fileID: 21300000, guid: e4fff70afde6d4a418327091a2bed0d3, type: 3}
-  - {fileID: 21300000, guid: bde8b22db5819ef408a6fa90b58f4b79, type: 3}
-  - {fileID: 21300000, guid: d55fd6a9451e1ab48a518604b9047727, type: 3}
-  - {fileID: 21300000, guid: 80134aa0ad4b02040a3d49d231f337ff, type: 3}
-  - {fileID: 21300000, guid: 9e56b216570642644a3a8ad1ab24623e, type: 3}
-  - {fileID: 21300000, guid: 59b1454028d26d7458abcde40d581773, type: 3}
-  - {fileID: 21300000, guid: 4938f898247c7a14aa5cffc6eaafeb2e, type: 3}
-  - {fileID: 21300000, guid: 159000080b7da4c4d8e8c3fc5ec0e7c1, type: 3}

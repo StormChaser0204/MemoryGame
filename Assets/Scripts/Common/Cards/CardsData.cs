@@ -2,10 +2,10 @@ using System;
 using System.Linq;
 using UnityEngine;
 
-namespace Common.Cats
+namespace Common.Cards
 {
     [CreateAssetMenu(fileName = "CatsData", menuName = "Game/Data/CatsData", order = 1)]
-    public class CatsData : ScriptableObject //TODO: Rename to "CardsData"
+    public class CardsData : ScriptableObject
     {
         public Info[] CatsInfo;
 
@@ -13,18 +13,20 @@ namespace Common.Cats
         {
             return CatsInfo.OrderBy(_ => Guid.NewGuid()).Take(amount).ToArray();
         }
+
+        public Info GetByName(string cardName) => CatsInfo.First(c => c.Name == cardName);
     }
     
     [Serializable]
     public struct Info
     {
         public string Name;
-        public Sprite[] Poses; //TODO: Rename to "Variant"
+        public Sprite[] Variants;
         
         public Sprite GetRandomPose()
         {
-            var rndIdx = new System.Random().Next(Poses.Length);
-            return Poses[rndIdx];
+            var rndIdx = new System.Random().Next(Variants.Length);
+            return Variants[rndIdx];
         }
     }
 }
