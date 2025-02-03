@@ -6,12 +6,6 @@ namespace Common.Cards
 {
     public class UnlockCardsData
     {
-        public struct UnlockCard
-        {
-            public string Name;
-            public bool IsUnlock;
-        }
-
         public readonly Dictionary<string, bool> Cards;
 
         public UnlockCardsData()

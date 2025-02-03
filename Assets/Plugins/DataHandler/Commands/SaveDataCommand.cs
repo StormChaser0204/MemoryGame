@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Plugins.DataHandler
 {
-    public abstract class SaveDataCommand<T> : ICommand 
+    public class SaveDataCommand<T> : ICommand 
     {
         private readonly T _data;
         

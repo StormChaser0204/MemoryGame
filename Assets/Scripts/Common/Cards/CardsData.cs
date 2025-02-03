@@ -22,6 +22,8 @@ namespace Common.Cards
     {
         public string Name;
         public Sprite[] Variants;
+        public Sprite IdlePose;
+        public int Cost;
         
         public Sprite GetRandomPose()
         {
